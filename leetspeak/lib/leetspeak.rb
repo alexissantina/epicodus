@@ -2,17 +2,21 @@ class String
   define_method(:leetspeak)  do
   	phrase = self.split("")
   	phrase_new = []
-  	phrase.each do |letter|
+  	phrase.each_with_index do |letter, index|
   		case letter
-  		when letter == "E", "e" 
+  		when "E", "e" 
   			letter = "3"
-  		when letter == "O", "o"
+  		when "O", "o"
   			letter = "0"
-  		when letter == "I"
+  		when "I"
   			letter = "1"
-  		when letter == "s"
-  			if letter.index() != 0
-  			  letter = "z"
+  		when "s", "S"
+        if index == 0
+          letter
+        elsif phrase[index - 1] == " "
+          letter
+        else
+          letter = "z"
   			end
   		end
   		phrase_new.push(letter)
@@ -23,5 +27,5 @@ class String
 end
 
 if $0 == __FILE__
-	"Everyone is cool.".leetspeak
+	"Everyone is cool".leetspeak
 end
