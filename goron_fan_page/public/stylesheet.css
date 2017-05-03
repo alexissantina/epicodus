@@ -1,0 +1,13 @@
+body {
+	background-color: #36A3BB;
+	color: White;
+}
+
+img {
+  width:  300px;
+  height: auto;
+}
+
+p {
+	overflow: auto;
+}
