@@ -1,32 +1,26 @@
-require('triangle')
+require('Parcel')
 require('rspec')
 
-describe(Triangle) do
-  describe("#triangle?") do
-    it("returns false if not a triangle") do
-      test_triangle = Triangle.new(2,2,8)
-      expect(test_triangle.triangle?()).to(eq(false))
+describe(Parcel) do
+  describe("#volume") do
+    it("provides the volume of the parcel") do
+      test_parcel = Parcel.new(5,3,2,1)
+      expect(test_parcel.volume()).to(eq(30))
     end
   end
 
-  describe("#equilateral?") do
-  	it ("returns true if all sides are equal") do
-  	  test_equilateral = Triangle.new(7,7,7)
-   	  expect(test_equilateral.equilateral?()).to(eq(true))
+  describe("#cost_to_ship") do
+  	it ("returns the amount it costs to ship") do
+  	  test_parcel = Parcel.new(7,7,7,7)
+   	  expect(test_parcel.cost_to_ship(1)).to(eq(350))
     end
   end
 
-  describe("#isosceles?") do
-  	it ("returns true if 2/3 sides are equal") do
-  	  test_isosceles = Triangle.new(6,6,4)
-  	  expect(test_isosceles.isosceles?()).to(eq(true))
+  describe("#cost_to_ship") do
+  	it ("returns an error if parcel is missing a dimension") do
+  	  test_parcel = Parcel.new(6,6,4)
+  	  expect(test_parcel.cost_to_ship(1)).to(eq(nil))
   	end
   end
 
-  describe("#scalene?") do
-  	it ("returns true if 0/3 sides are equal") do 
-  	  test_scalene = Triangle.new(3,4,5)
-  	  expect(test_scalene.scalene?()).to(eq(true))
-    end
-  end
 end

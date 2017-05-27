@@ -12,8 +12,13 @@ class Parcel
   end
   
   define_method(:cost_to_ship) do |delivery_speed|
-  	cost = @volume + @weight * (delivery_speed/5)
-    cost
+  	if @weight = nil
+  		puts "Please enter the weight of your package."
+  		gets @weight
+  	else
+	  	cost = ((@volume.to_i + @weight.to_i) * delivery_speed.to_i)
+	    cost
+	  end
   end
   
 end
