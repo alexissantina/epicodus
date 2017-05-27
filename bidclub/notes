@@ -1,0 +1,44 @@
+Parts of this app:
+
+1. Ux
+
+PART I: bidding
+   admin
+      add the pieces of art for sale by name or #
+      set a base price for the pieces of art for sale
+      specify the timeframe of the auction
+   user-facing
+      select piece of art
+      enter bid price
+
+PART II: purchasing
+   admin
+      how to handle this?
+    user-facing
+      winner of the bidding (whoever has highest bid at certain time) is invited to pay
+      link to venmo/paypal
+
+2. Backend
+   store hashes of art piece id and price
+   find highest bid per piece at end of timeframe
+     if no bid, ignore
+   notify winner they won and invite them to pay
+   forward art piece ID and price to venmo/paypal
+   record transaction id to the art piece hash- mark as purchased
+
+
+models (database records)
+   	-art
+   		-ID #
+   		-ID name
+   		-base price
+   		-final price
+   		-artist
+   	-customer
+   		-ID #
+   		-ID name
+   		-total amount they owe
+   	-bid
+   		-customer
+   		-amount
+   		-art piece
