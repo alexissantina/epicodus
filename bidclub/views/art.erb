@@ -1,9 +1,6 @@
-<h1>Art Pieces</h1>
+<h1><%= @art.name() %></h1>
+<h1><%= @art.id() %></h1>
+<h1><%= @art.purchaser() %></h1>
+<h1><%= @art.price() %></h1>
 
-<p>Here are all the art pieces in the auction:</p>
-
-<ul>
-  <% @arts.each() do |art| %>
-    <li><a href="/art/<=% art.id() %>"><%= art.name() %></a></li>
-  <% end %>
-</ul>
+<a href="/">Home</a>

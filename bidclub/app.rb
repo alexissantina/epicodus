@@ -7,16 +7,16 @@ get("/") do
   erb(:index)
 end
 
-get('/art') do
+get('/arts') do
   @art = Art.all()
   erb(:art)
 end
 
-get('/art/new') do
+get('/arts/new') do
   erb(:art_form)
 end
 
-post("/art") do
+post("/arts") do
   name = params.fetch("name")
   price = params.fetch("price")
   purchaser = params.fetch("purchaser")
@@ -25,7 +25,7 @@ post("/art") do
   erb(:success)
 end
 
-get('/art/:id') do
+get('/arts/:id') do
   @art = Art.find(params.fetch("id"))
   erb(:art)
 end
