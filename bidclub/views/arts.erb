@@ -4,6 +4,6 @@
 
 <ul>
   <% @arts.each() do |art| %>
-    <li><a href="/art/<=% art.id() %>"><%= art.name() %></a></li>
+    <li><a href="/art/<%= art.id() %>"><%= art.name() %></a></li>
   <% end %>
 </ul>
