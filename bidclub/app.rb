@@ -1,26 +1,28 @@
 require("sinatra")
 require("sinatra/reloader")
-also_reload("lib/**/*.rb")
-require("./lib/task")
+also_reload("lib/**.rb")
+require_relative("lib/art")
+#require("./lib/task")
 
 get("/") do
   erb(:index)
 end
 
-get('/arts') do
-  @art = Art.all()
-  erb(:art)
+get('/art') do
+  @arts = Art.all()
+  erb(:arts)
 end
 
-get('/arts/new') do
-  erb(:art_form)
+get('/art/new') do
+  erb(:arts_form)
 end
 
 post("/arts") do
   name = params.fetch("name")
+  artist = params.fetch("artist")
   price = params.fetch("price")
-  purchaser = params.fetch("purchaser")
-  art = Art.new(name, price, purchaser)
+#  purchaser = params.fetch("purchaser")
+  art = Art.new(name, artist, price)
   art.save()
   erb(:success)
 end
